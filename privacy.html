@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidad · Kareah</title>
+<style>
+  :root { --bg:#ffffff; --fg:#1f2328; --muted:#59636e; --line:#d1d9e0; --accent:#5865f2; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0d1117; --fg:#e6edf3; --muted:#9198a1; --line:#30363d; --accent:#8b9bff; } }
+  body { background:var(--bg); color:var(--fg); font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; margin:0; }
+  main { max-width:760px; margin:0 auto; padding:32px 20px 64px; }
+  h1 { font-size:1.9rem; margin:0 0 4px; } h2 { font-size:1.25rem; margin:2rem 0 .4rem; padding-top:.6rem; border-top:1px solid var(--line); }
+  p, li { margin:.4rem 0; } ul { padding-left:1.3rem; } a { color:var(--accent); } .muted { color:var(--muted); font-size:.92rem; }
+  nav { display:flex; gap:16px; flex-wrap:wrap; margin:12px 0 4px; font-size:.95rem; }
+  code { background:rgba(127,127,127,.15); padding:1px 5px; border-radius:4px; }
+</style>
+</head>
+<body>
+<main>
+
+<nav><a href="index.html">Inicio / Home</a> <a href="terms.html">Condiciones del Servicio</a> <a href="#en">English version ↓</a></nav>
+
+<section id="es">
+<h1>Política de Privacidad de Kareah</h1>
+<p class="muted">Última actualización: 7 de octubre de 2026</p>
+
+<p>Kareah es un bot de Discord (en adelante, «el Bot») con funciones de moderación, utilidades de servidor y consulta de datos del juego Star Citizen. Esta política explica qué datos trata el Bot, para qué, con quién se comparten y cómo ejercer tus derechos.</p>
+
+<h2>1. Responsable y contacto</h2>
+<p>El Bot lo opera una persona física a título particular, con residencia en España. Los servidores donde se ejecuta están en Alemania. Para cualquier consulta, solicitud de acceso o eliminación de datos, contacta por Discord con el operador: <a href="https://discord.com/users/392342517569290241">usuario de Discord con ID 392342517569290241</a> (mensaje directo), o en el <a href="https://discord.gg/vGnZMUSk95">servidor de soporte</a>.</p>
+
+<h2>2. Qué datos trata el Bot</h2>
+<p><strong>a) Identificadores de Discord.</strong> IDs de servidores, canales, roles y usuarios, y nombres de usuario cuando una función lo requiere (por ejemplo, al mostrar un aviso o un registro).</p>
+<p><strong>b) Datos que se guardan en la base de datos</strong>, solo cuando los administradores de un servidor usan la función correspondiente:</p>
+<ul>
+  <li>Configuración del servidor: prefijo, canal de registros, canales de estadísticas, roles automáticos, botones de roles, permisos por comando, ajustes de automoderación y palabras filtradas, respuestas automáticas (triggers), mensajes fijados (sticky), feeds RSS y monitores de noticias.</li>
+  <li>Avisos de moderación: ID del usuario avisado, ID del moderador, motivo y fecha.</li>
+  <li>Encuestas, sorteos y eventos: el contenido configurado y los IDs de los usuarios que votan, participan o se apuntan.</li>
+  <li>Recordatorios: ID del usuario, texto del recordatorio y fecha.</li>
+  <li>Canales de voz temporales: ID del usuario propietario del canal.</li>
+</ul>
+<p><strong>c) Contenido de mensajes.</strong> El Bot lee los mensajes de los canales a los que tiene acceso únicamente para ejecutar comandos con prefijo, aplicar la automoderación, activar respuestas automáticas y reenviar mensajes de los canales que un administrador haya configurado como origen del monitor de noticias. <strong>No almacena el contenido de los mensajes en su base de datos</strong>, salvo el texto que un administrador o usuario configure expresamente (respuestas automáticas, mensajes fijados, recordatorios, textos de encuestas, sorteos y eventos). Si un administrador activa el canal de registros, el Bot publica en ese canal de Discord el autor, el canal y el contenido de los mensajes editados o eliminados; ese registro queda en Discord, no en la base de datos del Bot.</p>
+<p><strong>d) Traducción.</strong> El texto que envías con <code>/traducir</code> o la acción «Traducir mensaje» se envía a servicios de traducción de terceros (Google Translate y MyMemory) o se procesa localmente en el servidor del Bot, para devolverte la traducción. Esos servicios aplican sus propias políticas de privacidad y pueden tratar los datos fuera del Espacio Económico Europeo.</p>
+<p><strong>e) Datos de juego.</strong> Los comandos de Star Citizen consultan datos públicos del juego en servicios de terceros (por ejemplo UEX Corp, SCMDB, Star Hangar / Upgrade Navigator, Star Head). Esas consultas las hace el Bot y <strong>no incluyen datos personales de los usuarios</strong>.</p>
+<p><strong>f) Registros técnicos.</strong> El servidor donde se ejecuta el Bot puede conservar registros técnicos de funcionamiento (por ejemplo, errores o acciones ejecutadas), que pueden incluir IDs y nombres de usuario de Discord. Se usan solo para el diagnóstico y la operación del servicio y se conservan únicamente el tiempo necesario.</p>
+
+<h2>3. Qué datos NO trata</h2>
+<ul>
+  <li>No recoge correos electrónicos, direcciones IP, ubicación ni datos de pago.</li>
+  <li>No lee mensajes directos de los usuarios (salvo el comando que el usuario le envíe). El Bot puede enviar mensajes directos informativos (por ejemplo, el aviso de que tu canal de voz temporal quedará vacío o un recordatorio que tú pediste).</li>
+  <li>No vende ni cede datos a terceros con fines comerciales, no muestra publicidad y no usa los datos para entrenar modelos de inteligencia artificial.</li>
+</ul>
+
+<h2>4. Finalidad y base legal</h2>
+<p>Los datos se tratan únicamente para prestar las funciones que los administradores y usuarios solicitan al usar el Bot (ejecución del servicio solicitado) y para mantener la seguridad y el correcto funcionamiento del servicio (interés legítimo).</p>
+
+<h2>5. Conservación</h2>
+<p>Los datos de configuración, avisos, participaciones y recordatorios se conservan mientras el Bot esté en el servidor o hasta que los administradores los eliminen con los comandos del Bot. Los registros de canales de voz temporales se eliminan cuando el canal se vacía y se borra; los recordatorios se marcan como enviados y se conservan mientras el Bot siga en el servidor.</p>
+<p><strong>Borrado automático al salir de un servidor.</strong> Cuando el Bot es expulsado de un servidor (o el servidor se elimina), el Bot borra automáticamente todos los datos de ese servidor, sin que tengas que pedirlo. Si el Bot estuviera apagado en ese momento, el borrado podría no ejecutarse; en ese caso puedes solicitarlo al operador (ver sección 7). Los mensajes que el Bot ya hubiera enviado a Discord (por ejemplo, registros publicados en un canal) permanecen en Discord y se rigen por las normas de la plataforma.</p>
+<p>Actualmente no se realizan copias de seguridad de la base de datos. Si se implantan en el futuro, se conservarán durante un periodo limitado y esta política se actualizará.</p>
+
+<h2>6. Con quién se comparten los datos</h2>
+<ul>
+  <li><strong>Discord</strong>, plataforma en la que funciona el Bot.</li>
+  <li><strong>Proveedor de alojamiento</strong>: el Bot y su base de datos se ejecutan en servidores contratados (Hetzner, Alemania).</li>
+  <li><strong>Servicios de traducción</strong> (Google Translate, MyMemory), solo con el texto que el usuario decide traducir.</li>
+</ul>
+<p>No hay más cesiones de datos personales.</p>
+
+<h2>7. Tus derechos</h2>
+<p>Puedes solicitar el acceso, la rectificación o la eliminación de los datos que el Bot guarde sobre ti o sobre tu servidor, así como oponerte a su tratamiento o pedir su limitación y portabilidad. Escribe al operador por Discord o en el servidor de soporte (sección 1) indicando tu ID de usuario o de servidor. Si resides en el Espacio Económico Europeo, también puedes reclamar ante tu autoridad de protección de datos; en España, la <a href="https://www.aepd.es">Agencia Española de Protección de Datos (AEPD)</a>.</p>
+
+<h2>8. Menores</h2>
+<p>El Bot solo está destinado a usuarios que cumplan la edad mínima exigida por las Condiciones del Servicio de Discord. No recoge a sabiendas datos de menores por debajo de esa edad; si detectas alguno, avísanos para eliminarlo.</p>
+
+<h2>9. Seguridad</h2>
+<p>Se aplican medidas razonables para proteger los datos (acceso restringido al servidor y a la base de datos, credenciales fuera del código fuente). Ningún sistema es completamente seguro, por lo que no se puede garantizar una seguridad absoluta.</p>
+
+<h2>10. Cambios</h2>
+<p>Esta política puede actualizarse. La fecha de «Última actualización» indica la versión vigente; el uso continuado del Bot tras un cambio implica su aceptación.</p>
+</section>
+
+<hr>
+
+<section id="en" lang="en">
+<h1>Kareah Privacy Policy</h1>
+<p class="muted">Last updated: October 7, 2026</p>
+
+<p>Kareah is a Discord bot (“the Bot”) offering moderation tools, server utilities and Star Citizen game-data lookups. This policy explains what data the Bot processes, why, who it is shared with, and how to exercise your rights.</p>
+
+<h2>1. Controller and contact</h2>
+<p>The Bot is run by an individual resident in Spain. The servers it runs on are in Germany. For any question or request to access or delete data, contact the operator on Discord: <a href="https://discord.com/users/392342517569290241">Discord user ID 392342517569290241</a> (direct message), or in the <a href="https://discord.gg/vGnZMUSk95">support server</a>.</p>
+
+<h2>2. Data the Bot processes</h2>
+<p><strong>a) Discord identifiers.</strong> Server, channel, role and user IDs, and usernames where a feature requires it (for example, when showing a warning or a log entry).</p>
+<p><strong>b) Data stored in the database</strong>, only when server administrators use the corresponding feature:</p>
+<ul>
+  <li>Server settings: prefix, log channel, stats channels, auto roles, role buttons, per-command permissions, automod settings and filtered words, automatic replies (triggers), sticky messages, RSS feeds and news monitors.</li>
+  <li>Moderation warnings: warned user ID, moderator ID, reason and date.</li>
+  <li>Polls, giveaways and events: the configured content and the IDs of users who vote, enter or sign up.</li>
+  <li>Reminders: user ID, reminder text and date.</li>
+  <li>Temporary voice channels: ID of the channel owner.</li>
+</ul>
+<p><strong>c) Message content.</strong> The Bot reads messages in channels it can access only to run prefix commands, apply automod, trigger automatic replies and forward messages from channels an administrator configured as news-monitor sources. <strong>It does not store message content in its database</strong>, except text that an administrator or user expressly configures (automatic replies, sticky messages, reminders, poll, giveaway and event texts). If an administrator enables the log channel, the Bot posts the author, channel and content of edited or deleted messages in that Discord channel; that log stays on Discord, not in the Bot's database.</p>
+<p><strong>d) Translation.</strong> Text you submit with <code>/traducir</code> or the “Translate message” action is sent to third-party translation services (Google Translate and MyMemory) or processed locally on the Bot's server, in order to return the translation. Those services apply their own privacy policies and may process data outside the European Economic Area.</p>
+<p><strong>e) Game data.</strong> Star Citizen commands query public game data from third-party services (for example UEX Corp, SCMDB, Star Hangar / Upgrade Navigator, Star Head). The Bot makes those requests itself and <strong>they contain no personal data about users</strong>.</p>
+<p><strong>f) Technical logs.</strong> The server the Bot runs on may keep technical operation logs (for example, errors or actions performed), which may include Discord IDs and usernames. They are used only to diagnose and operate the service and kept only as long as necessary.</p>
+
+<h2>3. Data the Bot does NOT process</h2>
+<ul>
+  <li>It does not collect email addresses, IP addresses, location or payment data.</li>
+  <li>It does not read users' direct messages (other than a command a user sends to it). The Bot may send informational direct messages (for example, that your temporary voice channel is about to be deleted, or a reminder you requested).</li>
+  <li>It does not sell or share data with third parties for commercial purposes, shows no advertising and does not use data to train AI models.</li>
+</ul>
+
+<h2>4. Purpose and legal basis</h2>
+<p>Data is processed only to provide the features that administrators and users request when using the Bot (performance of the requested service) and to keep the service secure and working (legitimate interest).</p>
+
+<h2>5. Retention</h2>
+<p>Settings, warnings, participation records and reminders are kept while the Bot is in the server, or until administrators delete them with the Bot's commands. Temporary voice channel records are removed when the channel empties and is deleted; reminders are marked as sent and kept while the Bot remains in the server.</p>
+<p><strong>Automatic deletion when leaving a server.</strong> When the Bot is removed from a server (or the server is deleted), the Bot automatically deletes all of that server's data, without you having to ask. If the Bot was offline at that moment, the deletion might not run; in that case you can request it from the operator (see section 7). Messages the Bot already sent to Discord (for example, logs posted in a channel) stay on Discord and are governed by the platform's rules.</p>
+<p>No database backups are currently made. If they are introduced in the future they will be kept for a limited period and this policy will be updated.</p>
+
+<h2>6. Who the data is shared with</h2>
+<ul>
+  <li><strong>Discord</strong>, the platform the Bot runs on.</li>
+  <li><strong>Hosting provider</strong>: the Bot and its database run on rented servers (Hetzner, Germany).</li>
+  <li><strong>Translation services</strong> (Google Translate, MyMemory), only with the text the user chooses to translate.</li>
+</ul>
+<p>There are no other disclosures of personal data.</p>
+
+<h2>7. Your rights</h2>
+<p>You may request access to, rectification or deletion of the data the Bot holds about you or your server, object to its processing, or ask for restriction and portability. Contact the operator on Discord or in the support server (section 1) with your user or server ID. If you live in the European Economic Area, you may also lodge a complaint with your data protection authority; in Spain, the <a href="https://www.aepd.es">Spanish Data Protection Agency (AEPD)</a>.</p>
+
+<h2>8. Children</h2>
+<p>The Bot is intended only for users who meet the minimum age required by Discord's Terms of Service. It does not knowingly collect data from anyone below that age; if you notice any, tell us so it can be deleted.</p>
+
+<h2>9. Security</h2>
+<p>Reasonable measures are applied to protect the data (restricted access to the server and database, credentials kept out of the source code). No system is completely secure, so absolute security cannot be guaranteed.</p>
+
+<h2>10. Changes</h2>
+<p>This policy may be updated. The “Last updated” date shows the current version; continued use of the Bot after a change means you accept it.</p>
+</section>
+
+</main>
+</body>
+</html>
