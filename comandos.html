@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comandos · Kareah</title>
+<meta name="description" content="Lista de comandos de Kareah, bot de Discord de moderación, utilidades de comunidad y datos de Star Citizen.">
+<style>
+  :root { --bg:#ffffff; --card:#f6f8fa; --fg:#1f2328; --muted:#59636e; --line:#d1d9e0; --accent:#5865f2; --accent-soft:rgba(88,101,242,.12); --ok:#1a7f37; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0d1117; --card:#151b23; --fg:#e6edf3; --muted:#9198a1; --line:#30363d; --accent:#8b9bff; --accent-soft:rgba(139,155,255,.14); --ok:#3fb950; } }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:84px; }
+  body { background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; margin:0; }
+  a { color:var(--accent); }
+  header.hero { max-width:1080px; margin:0 auto; padding:40px 20px 8px; }
+  h1 { font-size:2rem; margin:0 0 6px; }
+  .muted { color:var(--muted); }
+  .links { display:flex; gap:16px; flex-wrap:wrap; font-size:.95rem; margin-top:10px; }
+  .bar { position:sticky; top:0; z-index:5; background:var(--bg); border-bottom:1px solid var(--line); }
+  .bar-in { max-width:1080px; margin:0 auto; padding:12px 20px; display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+  .pills { display:flex; gap:8px; flex-wrap:wrap; }
+  .pills a { text-decoration:none; padding:6px 12px; border:1px solid var(--line); border-radius:999px; color:var(--fg); font-size:.92rem; }
+  .pills a:hover { border-color:var(--accent); }
+  .search { flex:1; min-width:220px; }
+  .search input { width:100%; padding:9px 12px; border:1px solid var(--line); border-radius:10px; background:var(--card); color:var(--fg); font:inherit; }
+  .search input:focus { outline:2px solid var(--accent); outline-offset:1px; }
+  main { max-width:1080px; margin:0 auto; padding:8px 20px 56px; }
+  .section h2 { font-size:1.5rem; margin:34px 0 4px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+  .group h3 { font-size:1.1rem; margin:26px 0 10px; color:var(--muted); font-weight:600; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:12px; }
+  .cmd { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; display:flex; flex-direction:column; gap:8px; }
+  .cmd h4 { margin:0; font-size:1rem; }
+  .cmd p { margin:0; font-size:.94rem; }
+  code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.9em; }
+  .cmd h4 code { color:var(--accent); background:none; padding:0; word-break:break-word; }
+  p code { background:var(--accent-soft); padding:1px 5px; border-radius:4px; }
+  .ex { margin-top:auto; text-align:left; width:100%; cursor:pointer; background:var(--bg); color:var(--fg); border:1px dashed var(--line); border-radius:8px; padding:8px 10px; display:grid; grid-template-columns:1fr auto; gap:2px 10px; align-items:center; font:inherit; }
+  .ex:hover { border-color:var(--accent); }
+  .ex:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .ex-label { grid-column:1 / -1; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
+  .ex code { word-break:break-word; }
+  .ex-copy { font-size:.78rem; color:var(--accent); }
+  .ex.done .ex-copy { color:var(--ok); }
+  .note { margin:12px 0 0; color:var(--muted); font-size:.92rem; }
+  .empty { display:none; text-align:center; color:var(--muted); padding:40px 0; }
+  footer { max-width:1080px; margin:0 auto; padding:0 20px 48px; color:var(--muted); font-size:.88rem; }
+  footer p { margin:.4rem 0; }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Comandos de Kareah</h1>
+  <p class="muted">Bot de Discord de <strong>moderación</strong>, <strong>utilidades de comunidad</strong> y <strong>datos de Star Citizen</strong>. Escribe <code>/</code> en el chat de Discord para verlos y usarlos. Pulsa un ejemplo para copiarlo.</p>
+  <div class="links">
+    <a href="index.html">Inicio</a>
+    <a href="terms.html">Condiciones del Servicio</a>
+    <a href="privacy.html">Política de Privacidad</a>
+    <a href="https://discord.gg/vGnZMUSk95">Servidor de soporte</a>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="bar-in">
+    <nav class="pills" aria-label="Secciones">
+      <a href="#moderacion">🛡️ Moderación y servidor</a>
+      <a href="#star-citizen">🚀 Star Citizen</a>
+    </nav>
+    <div class="search">
+      <input id="q" type="search" placeholder="Buscar comando… (ej. ban, minado, nave)" aria-label="Buscar comando" autocomplete="off">
+    </div>
+  </div>
+</div>
+
+<main>
+    <section id="moderacion" class="section">
+      <h2>🛡️ Moderación y servidor</h2>
+      <div class="group">
+        <h3>Moderación directa</h3>
+        <div class="grid">
+        <article class="cmd">
+          <h4><code>/ban</code></h4>
+          <p>Banea a un usuario del servidor.</p>
+          <button class="ex" type="button" data-copy="/ban user:@Juan reason:spam delete_messages:1d" aria-label="Copiar el ejemplo /ban user:@Juan reason:spam delete_messages:1d">
+            <span class="ex-label">Ejemplo</span>
+            <code>/ban user:@Juan reason:spam delete_messages:1d</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/kick</code></h4>
+          <p>Expulsa a un usuario del servidor.</p>
+          <button class="ex" type="button" data-copy="/kick user:@Juan reason:flood" aria-label="Copiar el ejemplo /kick user:@Juan reason:flood">
+            <span class="ex-label">Ejemplo</span>
+            <code>/kick user:@Juan reason:flood</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/silenciar aplicar · eliminar</code></h4>
+          <p>Silencia (timeout) a un usuario durante un tiempo, o le quita el silencio.</p>
+          <button class="ex" type="button" data-copy="/silenciar aplicar usuario:@Juan duracion:1h razon:insultos" aria-label="Copiar el ejemplo /silenciar aplicar usuario:@Juan duracion:1h razon:insultos">
+            <span class="ex-label">Ejemplo</span>
+            <code>/silenciar aplicar usuario:@Juan duracion:1h razon:insultos</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/aviso</code></h4>
+          <p>Advierte a un usuario y queda registrado.</p>
+          <button class="ex" type="button" data-copy="/aviso user:@Juan reason:Primer aviso por spam" aria-label="Copiar el ejemplo /aviso user:@Juan reason:Primer aviso por spam">
+            <span class="ex-label">Ejemplo</span>
+            <code>/aviso user:@Juan reason:Primer aviso por spam</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/avisos listar · limpiar</code></h4>
+          <p>Consulta las advertencias de un usuario o borra una concreta.</p>
+          <button class="ex" type="button" data-copy="/avisos listar user:@Juan" aria-label="Copiar el ejemplo /avisos listar user:@Juan">
+            <span class="ex-label">Ejemplo</span>
+            <code>/avisos listar user:@Juan</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/clear mensajes</code></h4>
+          <p>Borra mensajes del canal actual, opcionalmente solo de un usuario.</p>
+          <button class="ex" type="button" data-copy="/clear mensajes cantidad:20 usuario:@Juan" aria-label="Copiar el ejemplo /clear mensajes cantidad:20 usuario:@Juan">
+            <span class="ex-label">Ejemplo</span>
+            <code>/clear mensajes cantidad:20 usuario:@Juan</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/clear auto añadir · eliminar · lista</code></h4>
+          <p>Borrado automático periódico de un canal.</p>
+          <button class="ex" type="button" data-copy="/clear auto añadir canal:#spam cantidad:100 unidad:horas" aria-label="Copiar el ejemplo /clear auto añadir canal:#spam cantidad:100 unidad:horas">
+            <span class="ex-label">Ejemplo</span>
+            <code>/clear auto añadir canal:#spam cantidad:100 unidad:horas</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/infousuario</code></h4>
+          <p>Muestra información de un usuario.</p>
+          <button class="ex" type="button" data-copy="/infousuario user:@Juan" aria-label="Copiar el ejemplo /infousuario user:@Juan">
+            <span class="ex-label">Ejemplo</span>
+            <code>/infousuario user:@Juan</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        </div>
+        <p class="note">Por prefijo también funcionan: <code>!clear 10</code> (borra 10 mensajes y el propio comando), <code>!clear all</code>, <code>!clear clonar</code> y <code>!help</code>.</p>
+      </div>
+      <div class="group">
+        <h3>Automatización y protección</h3>
+        <div class="grid">
+        <article class="cmd">
+          <h4><code>/automod</code></h4>
+          <p>Automoderación: estado, activar/desactivar, antispam, filtro de invitaciones, palabras filtradas y exenciones.</p>
+          <button class="ex" type="button" data-copy="/automod antispam activar:true mensajes:5 segundos:5" aria-label="Copiar el ejemplo /automod antispam activar:true mensajes:5 segundos:5">
+            <span class="ex-label">Ejemplo</span>
+            <code>/automod antispam activar:true mensajes:5 segundos:5</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/logs canal · estado · desactivar</code></h4>
+          <p>Registro de mensajes editados y eliminados en un canal.</p>
+          <button class="ex" type="button" data-copy="/logs canal canal:#registros" aria-label="Copiar el ejemplo /logs canal canal:#registros">
+            <span class="ex-label">Ejemplo</span>
+            <code>/logs canal canal:#registros</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/trigger crear · listar · alternar · eliminar</code></h4>
+          <p>Respuestas automáticas a palabras clave.</p>
+          <button class="ex" type="button" data-copy="/trigger crear" aria-label="Copiar el ejemplo /trigger crear">
+            <span class="ex-label">Ejemplo</span>
+            <code>/trigger crear</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/autoroles añadir · eliminar · lista</code></h4>
+          <p>Roles que se asignan al entrar al servidor.</p>
+          <button class="ex" type="button" data-copy="/autoroles añadir rol:@Miembro" aria-label="Copiar el ejemplo /autoroles añadir rol:@Miembro">
+            <span class="ex-label">Ejemplo</span>
+            <code>/autoroles añadir rol:@Miembro</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/buttonroles crear · añadir · eliminar · lista · borrar</code></h4>
+          <p>Mensajes con botones para elegir rol.</p>
+          <button class="ex" type="button" data-copy="/buttonroles crear canal:#roles titulo:Elige tu rol" aria-label="Copiar el ejemplo /buttonroles crear canal:#roles titulo:Elige tu rol">
+            <span class="ex-label">Ejemplo</span>
+            <code>/buttonroles crear canal:#roles titulo:Elige tu rol</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/permisos añadir · quitar · copiar · limpiar · ver</code></h4>
+          <p>Gestiona los permisos de un canal.</p>
+          <button class="ex" type="button" data-copy="/permisos ver canal:#staff" aria-label="Copiar el ejemplo /permisos ver canal:#staff">
+            <span class="ex-label">Ejemplo</span>
+            <code>/permisos ver canal:#staff</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Canales y estructura</h3>
+        <div class="grid">
+        <article class="cmd">
+          <h4><code>/canal clonar · editar · ocultar · eliminar</code></h4>
+          <p>Gestión rápida de canales.</p>
+          <button class="ex" type="button" data-copy="/canal editar canal:#general slowmode:10" aria-label="Copiar el ejemplo /canal editar canal:#general slowmode:10">
+            <span class="ex-label">Ejemplo</span>
+            <code>/canal editar canal:#general slowmode:10</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/stats canal crear · lista · eliminar</code></h4>
+          <p>Canales con estadísticas del servidor: miembros, bots, canales o roles.</p>
+          <button class="ex" type="button" data-copy="/stats canal crear tipo:miembros" aria-label="Copiar el ejemplo /stats canal crear tipo:miembros">
+            <span class="ex-label">Ejemplo</span>
+            <code>/stats canal crear tipo:miembros</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/sticky texto · embed · velocidad · eliminar · estado · lista</code></h4>
+          <p>Mensaje fijado siempre al final del canal.</p>
+          <button class="ex" type="button" data-copy="/sticky texto mensaje:Lee las normas antes de escribir" aria-label="Copiar el ejemplo /sticky texto mensaje:Lee las normas antes de escribir">
+            <span class="ex-label">Ejemplo</span>
+            <code>/sticky texto mensaje:Lee las normas antes de escribir</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/voztemp</code></h4>
+          <p>Canales de voz temporales. Admins: configurar. Usuarios: bloquear, nombre, transferir.</p>
+          <button class="ex" type="button" data-copy="/voztemp nombre nuevo:Sala de Juan" aria-label="Copiar el ejemplo /voztemp nombre nuevo:Sala de Juan">
+            <span class="ex-label">Ejemplo</span>
+            <code>/voztemp nombre nuevo:Sala de Juan</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/moveall</code></h4>
+          <p>Mueve a todos los usuarios de voz a un canal.</p>
+          <button class="ex" type="button" data-copy="/moveall origen:#sala-1 destino:#sala-2" aria-label="Copiar el ejemplo /moveall origen:#sala-1 destino:#sala-2">
+            <span class="ex-label">Ejemplo</span>
+            <code>/moveall origen:#sala-1 destino:#sala-2</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/prefijo establecer · ver · reiniciar</code></h4>
+          <p>Prefijo de los comandos con símbolo (por defecto <code>!</code>).</p>
+          <button class="ex" type="button" data-copy="/prefijo establecer prefijo:?" aria-label="Copiar el ejemplo /prefijo establecer prefijo:?">
+            <span class="ex-label">Ejemplo</span>
+            <code>/prefijo establecer prefijo:?</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Utilidades de comunidad</h3>
+        <div class="grid">
+        <article class="cmd">
+          <h4><code>/encuesta crear · cerrar</code></h4>
+          <p>Encuestas con votación por botones.</p>
+          <button class="ex" type="button" data-copy="/encuesta crear pregunta:¿Quedamos? opcion1:Sí opcion2:No duracion:1d" aria-label="Copiar el ejemplo /encuesta crear pregunta:¿Quedamos? opcion1:Sí opcion2:No duracion:1d">
+            <span class="ex-label">Ejemplo</span>
+            <code>/encuesta crear pregunta:¿Quedamos? opcion1:Sí opcion2:No duracion:1d</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/sorteo crear · terminar · rerollear · lista</code></h4>
+          <p>Sorteos con participación por botón.</p>
+          <button class="ex" type="button" data-copy="/sorteo crear premio:Skin duracion:1d ganadores:2" aria-label="Copiar el ejemplo /sorteo crear premio:Skin duracion:1d ganadores:2">
+            <span class="ex-label">Ejemplo</span>
+            <code>/sorteo crear premio:Skin duracion:1d ganadores:2</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/evento crear · cancelar · lista</code></h4>
+          <p>Eventos con inscripción.</p>
+          <button class="ex" type="button" data-copy="/evento crear titulo:Noche de minería fecha:15/10/2026 21:00" aria-label="Copiar el ejemplo /evento crear titulo:Noche de minería fecha:15/10/2026 21:00">
+            <span class="ex-label">Ejemplo</span>
+            <code>/evento crear titulo:Noche de minería fecha:15/10/2026 21:00</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/recordar crear · lista · cancelar</code></h4>
+          <p>Recordatorios personales.</p>
+          <button class="ex" type="button" data-copy="/recordar crear tiempo:2h mensaje:Entregar el cargamento" aria-label="Copiar el ejemplo /recordar crear tiempo:2h mensaje:Entregar el cargamento">
+            <span class="ex-label">Ejemplo</span>
+            <code>/recordar crear tiempo:2h mensaje:Entregar el cargamento</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/traducir</code></h4>
+          <p>Traduce un texto. También: clic derecho en un mensaje → «Traducir mensaje».</p>
+          <button class="ex" type="button" data-copy="/traducir text:Hello everyone to:es" aria-label="Copiar el ejemplo /traducir text:Hello everyone to:es">
+            <span class="ex-label">Ejemplo</span>
+            <code>/traducir text:Hello everyone to:es</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/embed crear · editar</code></h4>
+          <p>Mensajes con formato (embeds).</p>
+          <button class="ex" type="button" data-copy="/embed crear canal:#anuncios" aria-label="Copiar el ejemplo /embed crear canal:#anuncios">
+            <span class="ex-label">Ejemplo</span>
+            <code>/embed crear canal:#anuncios</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/rsi añadir · lista · alternar · traducir · probar</code></h4>
+          <p>Reenvía y traduce canales de noticias.</p>
+          <button class="ex" type="button" data-copy="/rsi añadir origen:#rsi-news destino:#noticias traducir:true" aria-label="Copiar el ejemplo /rsi añadir origen:#rsi-news destino:#noticias traducir:true">
+            <span class="ex-label">Ejemplo</span>
+            <code>/rsi añadir origen:#rsi-news destino:#noticias traducir:true</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        </div>
+      </div>
+    </section>
+    <section id="star-citizen" class="section">
+      <h2>🚀 Star Citizen</h2>
+      <div class="group">
+        <h3>Minería y recursos</h3>
+        <div class="grid">
+        <article class="cmd">
+          <h4><code>/recurso</code></h4>
+          <p>Ficha de un material: dónde minarlo (🚀 nave · ⛏️ ROC · 🚜 FPS · 🌿 cosecha), rareza y refinerías. Con <code>solo_recetas:true</code> muestra solo las recetas.</p>
+          <button class="ex" type="button" data-copy="/recurso objeto:Quantainium usos:true" aria-label="Copiar el ejemplo /recurso objeto:Quantainium usos:true">
+            <span class="ex-label">Ejemplo</span>
+            <code>/recurso objeto:Quantainium usos:true</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/escaneo</code></h4>
+          <p>Tabla de códigos de escaneo de hasta 12 recursos, ordenada por firma.</p>
+          <button class="ex" type="button" data-copy="/escaneo recurso:Aluminum recurso2:Quantainium recurso3:Agricium" aria-label="Copiar el ejemplo /escaneo recurso:Aluminum recurso2:Quantainium recurso3:Agricium">
+            <span class="ex-label">Ejemplo</span>
+            <code>/escaneo recurso:Aluminum recurso2:Quantainium recurso3:Agricium</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/minado</code></h4>
+          <p>Calcula el láser y los módulos para minar una roca.</p>
+          <button class="ex" type="button" data-copy="/minado objeto:Iron" aria-label="Copiar el ejemplo /minado objeto:Iron">
+            <span class="ex-label">Ejemplo</span>
+            <code>/minado objeto:Iron</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/refinar</code></h4>
+          <p>Mejores refinerías, coste y rendimiento según tus lotes (<code>SCU,calidad</code>). Prioriza lo más productivo, económico o rápido.</p>
+          <button class="ex" type="button" data-copy="/refinar material:Iron prioridad:coste" aria-label="Copiar el ejemplo /refinar material:Iron prioridad:coste">
+            <span class="ex-label">Ejemplo</span>
+            <code>/refinar material:Iron prioridad:coste</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Crafteo y misiones</h3>
+        <div class="grid">
+        <article class="cmd">
+          <h4><code>/receta</code></h4>
+          <p>Receta de fabricación y qué propiedad afecta cada material.</p>
+          <button class="ex" type="button" data-copy="/receta objeto:CQ7 Rifle" aria-label="Copiar el ejemplo /receta objeto:CQ7 Rifle">
+            <span class="ex-label">Ejemplo</span>
+            <code>/receta objeto:CQ7 Rifle</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/craft</code></h4>
+          <p>Resultado del crafteo según la calidad de cada material.</p>
+          <button class="ex" type="button" data-copy="/craft objeto:CQ7 Rifle" aria-label="Copiar el ejemplo /craft objeto:CQ7 Rifle">
+            <span class="ex-label">Ejemplo</span>
+            <code>/craft objeto:CQ7 Rifle</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/mision</code></h4>
+          <p>Misión con recompensas, requisitos y lo que hay que entregar.</p>
+          <button class="ex" type="button" data-copy="/mision nombre:XS Purchase Order" aria-label="Copiar el ejemplo /mision nombre:XS Purchase Order">
+            <span class="ex-label">Ejemplo</span>
+            <code>/mision nombre:XS Purchase Order</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/wikelo</code></h4>
+          <p>Trueques de Wikelo Emporium.</p>
+          <button class="ex" type="button" data-copy="/wikelo objeto:Lindinium" aria-label="Copiar el ejemplo /wikelo objeto:Lindinium">
+            <span class="ex-label">Ejemplo</span>
+            <code>/wikelo objeto:Lindinium</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Naves y objetos</h3>
+        <div class="grid">
+        <article class="cmd">
+          <h4><code>/nave buy · rent</code></h4>
+          <p>Dónde comprar o alquilar una nave.</p>
+          <button class="ex" type="button" data-copy="/nave buy nave:Carrack" aria-label="Copiar el ejemplo /nave buy nave:Carrack">
+            <span class="ex-label">Ejemplo</span>
+            <code>/nave buy nave:Carrack</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/nave lista buy · rent</code></h4>
+          <p>Naves a la venta o en alquiler en una ubicación.</p>
+          <button class="ex" type="button" data-copy="/nave lista buy ubicacion:New Deal" aria-label="Copiar el ejemplo /nave lista buy ubicacion:New Deal">
+            <span class="ex-label">Ejemplo</span>
+            <code>/nave lista buy ubicacion:New Deal</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/nave carrito add · quitar · ver · vaciar</code></h4>
+          <p>Tu lista de la compra de naves, agrupada por tienda.</p>
+          <button class="ex" type="button" data-copy="/nave carrito add nave:Cutlass Black" aria-label="Copiar el ejemplo /nave carrito add nave:Cutlass Black">
+            <span class="ex-label">Ejemplo</span>
+            <code>/nave carrito add nave:Cutlass Black</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/nave ruta</code></h4>
+          <p>Cadena de upgrades (CCU) más barata entre dos naves, en euros o dólares.</p>
+          <button class="ex" type="button" data-copy="/nave ruta origen:Aurora objetivo:Carrack moneda:EUR" aria-label="Copiar el ejemplo /nave ruta origen:Aurora objetivo:Carrack moneda:EUR">
+            <span class="ex-label">Ejemplo</span>
+            <code>/nave ruta origen:Aurora objetivo:Carrack moneda:EUR</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/objeto buy · lista buy</code></h4>
+          <p>Dónde comprar ítems y componentes.</p>
+          <button class="ex" type="button" data-copy="/objeto buy objeto:Quantum Drive" aria-label="Copiar el ejemplo /objeto buy objeto:Quantum Drive">
+            <span class="ex-label">Ejemplo</span>
+            <code>/objeto buy objeto:Quantum Drive</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/objeto carrito add · quitar · ver · vaciar</code></h4>
+          <p>Tu lista de la compra de objetos, con cantidades, agrupada por tienda.</p>
+          <button class="ex" type="button" data-copy="/objeto carrito add objeto:Arrowhead cantidad:2" aria-label="Copiar el ejemplo /objeto carrito add objeto:Arrowhead cantidad:2">
+            <span class="ex-label">Ejemplo</span>
+            <code>/objeto carrito add objeto:Arrowhead cantidad:2</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/finder</code></h4>
+          <p>Busca cualquier ítem del juego.</p>
+          <button class="ex" type="button" data-copy="/finder objeto:Behring P8-SC" aria-label="Copiar el ejemplo /finder objeto:Behring P8-SC">
+            <span class="ex-label">Ejemplo</span>
+            <code>/finder objeto:Behring P8-SC</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Otros</h3>
+        <div class="grid">
+        <article class="cmd">
+          <h4><code>/pyam</code></h4>
+          <p>Estado online/offline del Executive Hangar y sus próximos cambios. Con <code>naves:true</code> muestra las naves de recompensa.</p>
+          <button class="ex" type="button" data-copy="/pyam naves:true" aria-label="Copiar el ejemplo /pyam naves:true">
+            <span class="ex-label">Ejemplo</span>
+            <code>/pyam naves:true</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        </div>
+      </div>
+    </section>
+    <p id="empty" class="empty">Ningún comando coincide con tu búsqueda.</p>
+</main>
+
+<footer>
+  <p>Los ejemplos usan valores de muestra: cambia usuarios, canales y cantidades por los de tu servidor. Los comandos de moderación y administración requieren los permisos correspondientes en tu servidor.</p>
+  <p>Kareah es un proyecto independiente de la comunidad. No está afiliado, patrocinado ni respaldado por Cloud Imperium Games ni por Roberts Space Industries. «Star Citizen» y otras marcas mencionadas pertenecen a sus respectivos propietarios.</p>
+</footer>
+
+<script>
+(function () {
+  var input = document.getElementById('q');
+  var empty = document.getElementById('empty');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.cmd'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.group'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.section'));
+
+  // B\u00fasqueda por inicio de palabra y sin acentos: "minado" no debe encontrar "eliminados".
+  function norm(s) { return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9\u00f1]+/g, ' '); }
+  // También se busca por el título del grupo (p. ej. "minería" encuentra todos los comandos de minería).
+  var index = cards.map(function (c) {
+    var group = c.closest('.group').querySelector('h3').textContent;
+    return ' ' + norm(c.textContent + ' ' + group) + ' ';
+  });
+
+  function filter() {
+    var words = norm(input.value).split(' ').filter(Boolean);
+    var visible = 0;
+    cards.forEach(function (c, i) {
+      var show = words.every(function (w) { return index[i].indexOf(' ' + w) !== -1; });
+      c.hidden = !show;
+      if (show) visible++;
+    });
+    groups.forEach(function (g) { g.hidden = !g.querySelector('.cmd:not([hidden])'); });
+    sections.forEach(function (s) { s.hidden = !s.querySelector('.group:not([hidden])'); });
+    empty.style.display = visible === 0 ? 'block' : 'none';
+  }
+  input.addEventListener('input', filter);
+
+  function copy(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function (resolve, reject) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy') ? resolve() : reject(); } catch (e) { reject(e); } finally { document.body.removeChild(ta); }
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('.ex');
+    if (!btn) return;
+    var label = btn.querySelector('.ex-copy');
+    copy(btn.getAttribute('data-copy')).then(function () {
+      btn.classList.add('done'); label.textContent = 'Copiado ✓';
+      setTimeout(function () { btn.classList.remove('done'); label.textContent = 'Copiar'; }, 1500);
+    }, function () { label.textContent = 'Selecciona y copia'; });
+  });
+})();
+</script>
+</body>
+</html>
