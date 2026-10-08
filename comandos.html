@@ -126,7 +126,7 @@
         </article>
         <article class="cmd">
           <h4><code>/clear mensajes</code></h4>
-          <p>Borra mensajes del canal actual, opcionalmente solo de un usuario.</p>
+          <p>Borra mensajes del canal actual, opcionalmente solo de un usuario. Conserva los anclados salvo que uses <code>ancladas:true</code>.</p>
           <button class="ex" type="button" data-copy="/clear mensajes cantidad:20 usuario:@Juan" aria-label="Copiar el ejemplo /clear mensajes cantidad:20 usuario:@Juan">
             <span class="ex-label">Ejemplo</span>
             <code>/clear mensajes cantidad:20 usuario:@Juan</code>
@@ -135,7 +135,7 @@
         </article>
         <article class="cmd">
           <h4><code>/clear auto añadir · eliminar · lista</code></h4>
-          <p>Borrado automático periódico de un canal.</p>
+          <p>Borrado automático periódico de un canal. Conserva los anclados; con <code>ancladas:true</code> borra todo, sin excepciones.</p>
           <button class="ex" type="button" data-copy="/clear auto añadir canal:#spam cantidad:100 unidad:horas" aria-label="Copiar el ejemplo /clear auto añadir canal:#spam cantidad:100 unidad:horas">
             <span class="ex-label">Ejemplo</span>
             <code>/clear auto añadir canal:#spam cantidad:100 unidad:horas</code>
@@ -152,7 +152,7 @@
           </button>
         </article>
         </div>
-        <p class="note">Por prefijo también funcionan: <code>!clear 10</code> (borra 10 mensajes y el propio comando), <code>!clear all</code>, <code>!clear clonar</code> y <code>!help</code>.</p>
+        <p class="note">Por prefijo también funcionan: <code>!clear 10</code> (borra 10 mensajes y el propio comando), <code>!clear all</code>, <code>!clear clonar</code> y <code>!help</code>. Los mensajes anclados se conservan; para borrarlos también, añade <code>ancladas</code>: <code>!clear 10 ancladas</code> o <code>!clear all ancladas</code>.</p>
       </div>
       <div class="group">
         <h3>Automatización y protección</h3>
