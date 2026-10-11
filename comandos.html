@@ -375,7 +375,7 @@
         </article>
         <article class="cmd">
           <h4><code>/refinar</code></h4>
-          <p>Mejores refinerías, coste y rendimiento según tus lotes (<code>SCU,calidad</code>). Prioriza lo más productivo, económico o rápido.</p>
+          <p>Mejores refinerías, coste y rendimiento según tus lotes (<code>SCU,calidad</code>). Prioriza lo más productivo, económico o rápido. El material se puede buscar en español o inglés.</p>
           <button class="ex" type="button" data-copy="/refinar material:Iron prioridad:coste" aria-label="Copiar el ejemplo /refinar material:Iron prioridad:coste">
             <span class="ex-label">Ejemplo</span>
             <code>/refinar material:Iron prioridad:coste</code>
@@ -407,7 +407,7 @@
         </article>
         <article class="cmd">
           <h4><code>/mision</code></h4>
-          <p>Misión con recompensas, requisitos y lo que hay que entregar.</p>
+          <p>Misión con recompensas, requisitos y lo que hay que entregar. La ficha sale en el idioma en que busques el nombre (español o inglés), o el que elijas con <code>idioma</code>.</p>
           <button class="ex" type="button" data-copy="/mision nombre:XS Purchase Order" aria-label="Copiar el ejemplo /mision nombre:XS Purchase Order">
             <span class="ex-label">Ejemplo</span>
             <code>/mision nombre:XS Purchase Order</code>
@@ -416,7 +416,7 @@
         </article>
         <article class="cmd">
           <h4><code>/wikelo</code></h4>
-          <p>Trueques de Wikelo Emporium.</p>
+          <p>Trueques de Wikelo Emporium. Misma opción <code>idioma</code> que <code>/mision</code>.</p>
           <button class="ex" type="button" data-copy="/wikelo objeto:Lindinium" aria-label="Copiar el ejemplo /wikelo objeto:Lindinium">
             <span class="ex-label">Ejemplo</span>
             <code>/wikelo objeto:Lindinium</code>
@@ -488,6 +488,47 @@
           <button class="ex" type="button" data-copy="/finder objeto:Behring P8-SC" aria-label="Copiar el ejemplo /finder objeto:Behring P8-SC">
             <span class="ex-label">Ejemplo</span>
             <code>/finder objeto:Behring P8-SC</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        </div>
+      </div>
+      <div class="group">
+        <h3>Comercio</h3>
+        <div class="grid">
+        <article class="cmd">
+          <h4><code>/comercio comprar</code></h4>
+          <p>Dónde comprar una mercancía, de la más barata a la más cara, con stock, contenedores y antigüedad del precio. Acepta nombres en español o inglés.</p>
+          <button class="ex" type="button" data-copy="/comercio comprar recurso:oro sistema:Stanton" aria-label="Copiar el ejemplo /comercio comprar recurso:oro sistema:Stanton">
+            <span class="ex-label">Ejemplo</span>
+            <code>/comercio comprar recurso:oro sistema:Stanton</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/comercio vender</code></h4>
+          <p>Dónde vender una mercancía, de la que más paga a la que menos, con la demanda de cada terminal.</p>
+          <button class="ex" type="button" data-copy="/comercio vender recurso:Quantainium" aria-label="Copiar el ejemplo /comercio vender recurso:Quantainium">
+            <span class="ex-label">Ejemplo</span>
+            <code>/comercio vender recurso:Quantainium</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/comercio terminal</code></h4>
+          <p>Qué vende y qué compra una terminal comercial, con precios.</p>
+          <button class="ex" type="button" data-copy="/comercio terminal ubicacion:TDD Area 18" aria-label="Copiar el ejemplo /comercio terminal ubicacion:TDD Area 18">
+            <span class="ex-label">Ejemplo</span>
+            <code>/comercio terminal ubicacion:TDD Area 18</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/comercio ruta</code></h4>
+          <p>Rutas de comercio rentables según tu carga y tu inversión: beneficio estimado, ROI, distancia y puntuación de UEX. Filtra por mercancía, origen, destino o sistema.</p>
+          <button class="ex" type="button" data-copy="/comercio ruta sistema:Stanton scu:46 inversion:200000 orden:roi" aria-label="Copiar el ejemplo /comercio ruta sistema:Stanton scu:46 inversion:200000 orden:roi">
+            <span class="ex-label">Ejemplo</span>
+            <code>/comercio ruta sistema:Stanton scu:46 inversion:200000 orden:roi</code>
             <span class="ex-copy" aria-hidden="true">Copiar</span>
           </button>
         </article>

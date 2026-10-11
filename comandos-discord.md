@@ -1,3 +1,14 @@
+<!--
+CÓMO USAR ESTE ARCHIVO
+- Cada bloque entre las marcas "✂ MENSAJE N" es UN mensaje de Discord. Copia solo lo que hay
+  debajo de la marca (sin la marca) y pégalo en el canal. Discord limita cada mensaje a
+  2000 caracteres, por eso está dividido así.
+- Al editar, mantén cada bloque por debajo de ~1900 caracteres. Si te pasas, parte el bloque.
+- Discord no muestra tablas: por eso todo son listas y títulos (#, ##, ###).
+- Los ejemplos usan valores de muestra: cambia canales, usuarios y cantidades por los tuyos.
+-->
+
+<!-- ✂ MENSAJE 1 — introducción -->
 # 🤖 Kareah — Guía de comandos
 Bot de **moderación**, **utilidades de comunidad** y **datos de Star Citizen**.
 Escribe `/` en el chat para ver los comandos y sus opciones. Los ejemplos de esta guía usan valores de muestra.
@@ -19,14 +30,15 @@ Escribe `/` en el chat para ver los comandos y sus opciones. Los ejemplos de est
   Ej.: `/aviso user:@Juan reason:Primer aviso por spam`
 - `/avisos listar` · `limpiar` — Consulta o borra advertencias.
   Ej.: `/avisos listar user:@Juan`
-- `/clear mensajes` — Borra mensajes del canal.
+- `/clear mensajes` — Borra mensajes del canal. Conserva los anclados salvo que pongas `ancladas:true`.
   Ej.: `/clear mensajes cantidad:20 usuario:@Juan`
-- `/clear auto añadir` · `eliminar` · `lista` — Borrado automático periódico de un canal.
+- `/clear auto añadir` · `eliminar` · `lista` — Borrado automático periódico de un canal. Con `ancladas:true` borra todo, sin excepciones.
   Ej.: `/clear auto añadir canal:#spam cantidad:100 unidad:horas`
 - `/infousuario` — Información de un usuario.
   Ej.: `/infousuario user:@Juan`
 
 **Por prefijo:** `!clear 10` (borra 10 mensajes y el propio comando) · `!clear all` · `!clear clonar` · `!help`
+📌 `!clear` conserva los mensajes anclados. Para borrarlos también, añade `ancladas`: `!clear 10 ancladas` · `!clear all ancladas`
 
 <!-- ✂ MENSAJE 3 — automatización -->
 ## Automatización y protección
@@ -84,7 +96,7 @@ Escribe `/` en el chat para ver los comandos y sus opciones. Los ejemplos de est
   Ej.: `/escaneo recurso:Aluminum recurso2:Quantainium recurso3:Agricium`
 - `/minado` — Calcula láser y módulos para minar una roca.
   Ej.: `/minado objeto:Iron`
-- `/refinar` — Mejores refinerías, coste y rendimiento según tus lotes (`SCU,calidad`).
+- `/refinar` — Mejores refinerías, coste y rendimiento según tus lotes (`SCU,calidad`). El material se puede buscar en español o inglés.
   Ej.: `/refinar material:Iron prioridad:coste`
 
 <!-- ✂ MENSAJE 7 — Star Citizen: crafteo y misiones -->
@@ -93,9 +105,9 @@ Escribe `/` en el chat para ver los comandos y sus opciones. Los ejemplos de est
   Ej.: `/receta objeto:CQ7 Rifle`
 - `/craft` — Resultado del crafteo según la calidad de cada material.
   Ej.: `/craft objeto:CQ7 Rifle`
-- `/mision` — Misión con recompensas, requisitos y lo que hay que entregar.
+- `/mision` — Misión con recompensas, requisitos y lo que hay que entregar. La ficha sale en el idioma en que busques el nombre (español o inglés), o el que elijas con `idioma`.
   Ej.: `/mision nombre:XS Purchase Order`
-- `/wikelo` — Trueques de Wikelo Emporium.
+- `/wikelo` — Trueques de Wikelo Emporium. Misma opción `idioma` que `/mision`.
   Ej.: `/wikelo objeto:Lindinium`
 
 <!-- ✂ MENSAJE 8 — Star Citizen: naves, objetos y otros -->
@@ -113,6 +125,14 @@ Escribe `/` en el chat para ver los comandos y sus opciones. Los ejemplos de est
 - `/finder` — Busca cualquier ítem del juego.
   Ej.: `/finder objeto:Behring P8-SC`
 
-## PYAM - HANGARES EXECUTIVOS
+## Comercio
+- `/comercio comprar` · `vender` — Dónde comprar (más barato primero) o vender (más caro primero) una mercancía.
+  Ej.: `/comercio comprar recurso:oro sistema:Stanton`
+- `/comercio terminal` — Qué compra y vende una terminal.
+  Ej.: `/comercio terminal ubicacion:TDD Area 18`
+- `/comercio ruta` — Rutas rentables según tu carga e inversión (beneficio, ROI, distancia).
+  Ej.: `/comercio ruta sistema:Stanton scu:46 inversion:200000 orden:roi`
+
+## Otros
 - `/pyam` — Estado online/offline del Executive Hangar y sus próximos cambios.
   Ej.: `/pyam naves:true` (muestra también las naves de recompensa)
