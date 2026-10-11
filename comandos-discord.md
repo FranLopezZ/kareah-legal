@@ -105,7 +105,7 @@ Escribe `/` en el chat para ver los comandos y sus opciones. Los ejemplos de est
   Ej.: `/receta objeto:CQ7 Rifle`
 - `/craft` — Resultado del crafteo según la calidad de cada material.
   Ej.: `/craft objeto:CQ7 Rifle`
-- `/mision` — Misión con recompensas, requisitos y lo que hay que entregar. La ficha sale en el idioma en que busques el nombre (español o inglés), o el que elijas con `idioma`.
+- `/mision` — Misión con recompensas, requisitos y lo que hay que entregar. La ficha sale en español por defecto, aunque busques el nombre en inglés; usa `idioma:English` para verla en inglés.
   Ej.: `/mision nombre:XS Purchase Order`
 - `/wikelo` — Trueques de Wikelo Emporium. Misma opción `idioma` que `/mision`.
   Ej.: `/wikelo objeto:Lindinium`
