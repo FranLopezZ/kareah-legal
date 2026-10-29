@@ -22,7 +22,7 @@
 
 <section id="es">
 <h1>Política de Privacidad de Kareah</h1>
-<p class="muted">Última actualización: 7 de octubre de 2026</p>
+<p class="muted">Última actualización: 29 de octubre de 2026</p>
 
 <p>Kareah es un bot de Discord (en adelante, «el Bot») con funciones de moderación, utilidades de servidor y consulta de datos del juego Star Citizen. Esta política explica qué datos trata el Bot, para qué, con quién se comparten y cómo ejercer tus derechos.</p>
 
@@ -37,11 +37,13 @@
   <li>Avisos de moderación: ID del usuario avisado, ID del moderador, motivo y fecha.</li>
   <li>Encuestas, sorteos y eventos: el contenido configurado y los IDs de los usuarios que votan, participan o se apuntan.</li>
   <li>Recordatorios: ID del usuario, texto del recordatorio y fecha.</li>
+  <li>Listas de la compra (<code>/nave carrito</code> y <code>/objeto carrito</code>): ID del usuario y los identificadores de las naves o ítems que ha guardado, con su cantidad. No están asociadas a ningún servidor.</li>
   <li>Canales de voz temporales: ID del usuario propietario del canal.</li>
+  <li>Inventarios (<code>/inventario</code>): nombre, objetos, ubicaciones y cantidades que los administradores configuran, y los IDs de quien creó el inventario, de los usuarios o roles autorizados a editarlo y de quien hizo cada cambio en su historial (los últimos movimientos, con la nota opcional que escriba). Pertenecen al servidor y se borran con <code>/inventario borrar</code> o al salir el Bot del servidor.</li>
 </ul>
 <p><strong>c) Contenido de mensajes.</strong> El Bot lee los mensajes de los canales a los que tiene acceso únicamente para ejecutar comandos con prefijo, aplicar la automoderación, activar respuestas automáticas y reenviar mensajes de los canales que un administrador haya configurado como origen del monitor de noticias. <strong>No almacena el contenido de los mensajes en su base de datos</strong>, salvo el texto que un administrador o usuario configure expresamente (respuestas automáticas, mensajes fijados, recordatorios, textos de encuestas, sorteos y eventos). Si un administrador activa el canal de registros, el Bot publica en ese canal de Discord el autor, el canal y el contenido de los mensajes editados o eliminados; ese registro queda en Discord, no en la base de datos del Bot.</p>
 <p><strong>d) Traducción.</strong> El texto que envías con <code>/traducir</code> o la acción «Traducir mensaje» se envía a servicios de traducción de terceros (Google Translate y MyMemory) o se procesa localmente en el servidor del Bot, para devolverte la traducción. Esos servicios aplican sus propias políticas de privacidad y pueden tratar los datos fuera del Espacio Económico Europeo.</p>
-<p><strong>e) Datos de juego.</strong> Los comandos de Star Citizen consultan datos públicos del juego en servicios de terceros (por ejemplo UEX Corp, SCMDB, Star Hangar / Upgrade Navigator, Star Head). Esas consultas las hace el Bot y <strong>no incluyen datos personales de los usuarios</strong>.</p>
+<p><strong>e) Datos de juego.</strong> Los comandos de Star Citizen consultan datos públicos del juego en servicios de terceros (por ejemplo UEX Corp, SCMDB, Star Hangar / Upgrade Navigator, Space Foundry, Star Head). Esas consultas las hace el Bot y <strong>no incluyen datos personales de los usuarios</strong>.</p>
 <p><strong>f) Registros técnicos.</strong> El servidor donde se ejecuta el Bot puede conservar registros técnicos de funcionamiento (por ejemplo, errores o acciones ejecutadas), que pueden incluir IDs y nombres de usuario de Discord. Se usan solo para el diagnóstico y la operación del servicio y se conservan únicamente el tiempo necesario.</p>
 
 <h2>3. Qué datos NO trata</h2>
@@ -56,6 +58,7 @@
 
 <h2>5. Conservación</h2>
 <p>Los datos de configuración, avisos, participaciones y recordatorios se conservan mientras el Bot esté en el servidor o hasta que los administradores los eliminen con los comandos del Bot. Los registros de canales de voz temporales se eliminan cuando el canal se vacía y se borra; los recordatorios se marcan como enviados y se conservan mientras el Bot siga en el servidor.</p>
+<p>Las listas de la compra pertenecen al usuario, no a un servidor, así que no se borran cuando el Bot sale de uno: se conservan hasta que el propio usuario las vacía con <code>/nave carrito vaciar</code> o <code>/objeto carrito vaciar</code>, o hasta que solicita su borrado al operador (ver sección 7).</p>
 <p><strong>Borrado automático al salir de un servidor.</strong> Cuando el Bot es expulsado de un servidor (o el servidor se elimina), el Bot borra automáticamente todos los datos de ese servidor, sin que tengas que pedirlo. Si el Bot estuviera apagado en ese momento, el borrado podría no ejecutarse; en ese caso puedes solicitarlo al operador (ver sección 7). Los mensajes que el Bot ya hubiera enviado a Discord (por ejemplo, registros publicados en un canal) permanecen en Discord y se rigen por las normas de la plataforma.</p>
 <p>Actualmente no se realizan copias de seguridad de la base de datos. Si se implantan en el futuro, se conservarán durante un periodo limitado y esta política se actualizará.</p>
 
@@ -84,7 +87,7 @@
 
 <section id="en" lang="en">
 <h1>Kareah Privacy Policy</h1>
-<p class="muted">Last updated: October 7, 2026</p>
+<p class="muted">Last updated: October 29, 2026</p>
 
 <p>Kareah is a Discord bot (“the Bot”) offering moderation tools, server utilities and Star Citizen game-data lookups. This policy explains what data the Bot processes, why, who it is shared with, and how to exercise your rights.</p>
 
@@ -99,11 +102,13 @@
   <li>Moderation warnings: warned user ID, moderator ID, reason and date.</li>
   <li>Polls, giveaways and events: the configured content and the IDs of users who vote, enter or sign up.</li>
   <li>Reminders: user ID, reminder text and date.</li>
+  <li>Shopping lists (<code>/nave carrito</code> and <code>/objeto carrito</code>): user ID and the identifiers of the ships or items the user saved, with their quantity. They are not tied to any server.</li>
   <li>Temporary voice channels: ID of the channel owner.</li>
+  <li>Inventories (<code>/inventario</code>): the name, items, locations and quantities administrators configure, plus the IDs of the inventory creator, of the users or roles allowed to edit it, and of whoever made each change in its history (with the optional note they typed). They belong to the server and are deleted with <code>/inventario borrar</code> or when the Bot leaves the server.</li>
 </ul>
 <p><strong>c) Message content.</strong> The Bot reads messages in channels it can access only to run prefix commands, apply automod, trigger automatic replies and forward messages from channels an administrator configured as news-monitor sources. <strong>It does not store message content in its database</strong>, except text that an administrator or user expressly configures (automatic replies, sticky messages, reminders, poll, giveaway and event texts). If an administrator enables the log channel, the Bot posts the author, channel and content of edited or deleted messages in that Discord channel; that log stays on Discord, not in the Bot's database.</p>
 <p><strong>d) Translation.</strong> Text you submit with <code>/traducir</code> or the “Translate message” action is sent to third-party translation services (Google Translate and MyMemory) or processed locally on the Bot's server, in order to return the translation. Those services apply their own privacy policies and may process data outside the European Economic Area.</p>
-<p><strong>e) Game data.</strong> Star Citizen commands query public game data from third-party services (for example UEX Corp, SCMDB, Star Hangar / Upgrade Navigator, Star Head). The Bot makes those requests itself and <strong>they contain no personal data about users</strong>.</p>
+<p><strong>e) Game data.</strong> Star Citizen commands query public game data from third-party services (for example UEX Corp, SCMDB, Star Hangar / Upgrade Navigator, Space Foundry, Star Head). The Bot makes those requests itself and <strong>they contain no personal data about users</strong>.</p>
 <p><strong>f) Technical logs.</strong> The server the Bot runs on may keep technical operation logs (for example, errors or actions performed), which may include Discord IDs and usernames. They are used only to diagnose and operate the service and kept only as long as necessary.</p>
 
 <h2>3. Data the Bot does NOT process</h2>
@@ -118,6 +123,7 @@
 
 <h2>5. Retention</h2>
 <p>Settings, warnings, participation records and reminders are kept while the Bot is in the server, or until administrators delete them with the Bot's commands. Temporary voice channel records are removed when the channel empties and is deleted; reminders are marked as sent and kept while the Bot remains in the server.</p>
+<p>Shopping lists belong to the user, not to a server, so they are not deleted when the Bot leaves one: they are kept until the user empties them with <code>/nave carrito vaciar</code> or <code>/objeto carrito vaciar</code>, or asks the operator to delete them (see section 7).</p>
 <p><strong>Automatic deletion when leaving a server.</strong> When the Bot is removed from a server (or the server is deleted), the Bot automatically deletes all of that server's data, without you having to ask. If the Bot was offline at that moment, the deletion might not run; in that case you can request it from the operator (see section 7). Messages the Bot already sent to Discord (for example, logs posted in a channel) stay on Discord and are governed by the platform's rules.</p>
 <p>No database backups are currently made. If they are introduced in the future they will be kept for a limited period and this policy will be updated.</p>
 

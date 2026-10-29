@@ -87,7 +87,18 @@ Escribe `/` en el chat para ver los comandos y sus opciones. Los ejemplos de est
 - `/rsi añadir` · `lista` · `alternar` — Reenvía y traduce canales de noticias.
   Ej.: `/rsi añadir origen:#rsi-news destino:#noticias traducir:true`
 
-<!-- ✂ MENSAJE 6 — Star Citizen: minería -->
+<!-- ✂ MENSAJE 6 — inventarios -->
+## Inventarios
+- `/inventario crear` · `lista` · `borrar` · `republicar` — Inventarios con panel fijo y botones ➕ Añadir · ➖ Quitar · 🔁 Mover · 📋 Detalle · 📜 Historial. Cada objeto tiene cantidad por ubicación y un mínimo opcional que avisa al bajar. Los administradores lo crean; ven el panel y el historial todos.
+  Ej.: `/inventario crear nombre:Reactivos ubicaciones:Flotación, Nave, Jhon Wick`
+- `/inventario objeto` (`añadir` · `quitar` · `minimo`) · `ubicacion` (`añadir` · `quitar`) — Estructura del inventario (administradores).
+  Ej.: `/inventario objeto añadir inventario:Reactivos nombre:Reactivo 01 minimo:5`
+- `/inventario permisos añadir` · `quitar` · `ver` — Usuarios o roles que pueden cambiar cantidades con los botones (administradores).
+  Ej.: `/inventario permisos añadir inventario:Reactivos usuario:@Juan`
+- `/inventario stock añadir` · `quitar` · `mover` — Lo mismo que los botones, escrito (solo usuarios con permiso).
+  Ej.: `/inventario stock mover inventario:Reactivos objeto:Reactivo 01 desde:Nave hacia:Flotación cantidad:3`
+
+<!-- ✂ MENSAJE 7 — Star Citizen: minería -->
 # 🚀 STAR CITIZEN
 ## Minería y recursos
 - `/recurso` — Ficha de un material: dónde minarlo (🚀 nave · ⛏️ ROC · 🚜 FPS · 🌿 cosecha), rareza y refinerías.
@@ -99,20 +110,20 @@ Escribe `/` en el chat para ver los comandos y sus opciones. Los ejemplos de est
 - `/refinar` — Mejores refinerías, coste y rendimiento según tus lotes (`SCU,calidad`). El material se puede buscar en español o inglés.
   Ej.: `/refinar material:Iron prioridad:coste`
 
-<!-- ✂ MENSAJE 7 — Star Citizen: crafteo y misiones -->
+<!-- ✂ MENSAJE 8 — Star Citizen: crafteo y misiones -->
 ## Crafteo y misiones
 - `/receta` — Receta de fabricación y qué propiedad afecta cada material.
   Ej.: `/receta objeto:CQ7 Rifle`
 - `/craft` — Resultado del crafteo según la calidad de cada material.
   Ej.: `/craft objeto:CQ7 Rifle`
-- `/mision` — Ficha completa: recompensas, requisitos, entregas, tiempo, jugadores, combate (naves, bando y carga), lugares y destinos, sin recortes. Sale en español por defecto, aunque busques el nombre en inglés; usa `idioma:English` para verla en inglés.
+- `/mision` — Ficha completa: recompensas, requisitos, entregas, tiempo, cooldown, jugadores, combate (naves, bando y carga), lugares y destinos, sin recortes. Sale en español por defecto, aunque busques el nombre en inglés; usa `idioma:English` para verla en inglés.
   Ej.: `/mision nombre:XS Purchase Order`
-- `/wikelo` — Trueques de Wikelo Emporium. Misma opción `idioma` que `/mision`.
-  Ej.: `/wikelo objeto:Lindinium`
+- `/wikelo` — Trueques de Wikelo Emporium, por nombre o por recompensa (nave, arma, armadura): el autocompletado muestra `Trueque → Recompensa`. Misma opción `idioma` que `/mision`.
+  Ej.: `/wikelo objeto:Aegis Sabre Firebird`
 
-<!-- ✂ MENSAJE 8 — Star Citizen: naves, objetos y otros -->
+<!-- ✂ MENSAJE 9 — Star Citizen: naves, objetos y otros -->
 ## Naves y objetos
-- `/nave buy` · `rent` — Dónde comprar o alquilar una nave.
+- `/nave buy` · `rent` — Dónde comprar o alquilar una nave. En `buy` salen también los paquetes sin CCU de Star-Hangar y Space Foundry: el precio más bajo de cada seguro (LTI, 10 años…) por tienda.
   Ej.: `/nave buy nave:Carrack`
 - `/nave lista buy` · `rent` — Naves a la venta o en alquiler en una ubicación.
   Ej.: `/nave lista buy ubicacion:New Deal`
@@ -122,8 +133,17 @@ Escribe `/` en el chat para ver los comandos y sus opciones. Los ejemplos de est
   Ej.: `/nave ruta origen:Aurora objetivo:Carrack moneda:EUR`
 - `/objeto buy` · `lista buy` · `carrito` — Dónde comprar ítems y componentes.
   Ej.: `/objeto carrito add objeto:Arrowhead cantidad:2`
-- `/finder` — Busca cualquier ítem del juego.
-  Ej.: `/finder objeto:Behring P8-SC`
+- `/finder buscar` — Busca cualquier ítem y lista todas las tiendas donde comprarlo. Con `sistema` (Stanton, Pyro o Nyx), `ubicacion` (ciudad o estación: `Nyx - Levski`, `Stanton - ARC-L1`) o `tienda` solo las de ahí. Si un trueque de Wikelo u otra misión pide el ítem (con la cantidad y el pago), las lista y las abre con un desplegable.
+  Ej.: `/finder buscar objeto:P4-AR Rifle ubicacion:Stanton - ARC-L1`
+- `/finder tienda` — Todo lo que vende una tienda, por categorías y con precio. Con `categoria` solo una (`Utility`, `Utility/Gadgets`, `Miscellaneous/Foods`…).
+  Ej.: `/finder tienda tienda:Tammany categoria:Utility/Gadgets`
+
+<!-- ✂ MENSAJE 10 — Star Citizen: componentes, comercio y otros -->
+## Componentes
+- `/componente buscar` — Dónde se compra un componente de nave, si puede ser botín y qué naves lo llevan de serie, con en cuántas misiones sale cada una. Con `nave` lista esas misiones.
+  Ej.: `/componente buscar componente:Bulwark nave:Drake Vulture`
+- `/componente nave` — Qué equipamiento trae de serie una nave: generador, escudos, armas, misiles…
+  Ej.: `/componente nave nave:Cutlass Black`
 
 ## Comercio
 - `/comercio comprar` · `vender` — Dónde comprar (más barato primero) o vender (más caro primero) una mercancía.
@@ -134,5 +154,5 @@ Escribe `/` en el chat para ver los comandos y sus opciones. Los ejemplos de est
   Ej.: `/comercio ruta sistema:Stanton scu:46 inversion:200000 orden:roi`
 
 ## Otros
-- `/pyam` — Estado online/offline del Executive Hangar y sus próximos cambios.
-  Ej.: `/pyam naves:true` (muestra también las naves de recompensa)
+- `/pyam` — Estado del Executive Hangar (online, offline o reiniciando) y sus próximos cambios. El ciclo sale de contestedzonetimers.com; con `fuente` puedes usar exec.xyxyll.com.
+  Ej.: `/pyam naves:true fuente:exec.xyxyll.com` (muestra también las naves de recompensa)

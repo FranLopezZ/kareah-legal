@@ -338,6 +338,42 @@
             <span class="ex-copy" aria-hidden="true">Copiar</span>
           </button>
         </article>
+        <article class="cmd">
+          <h4><code>/inventario crear · lista · borrar · republicar</code></h4>
+          <p>Inventarios con un panel fijo que el Bot actualiza solo y botones <strong>➕ Añadir · ➖ Quitar · 🔁 Mover · 📋 Detalle · 📜 Historial</strong>. Cada objeto tiene su cantidad en cada ubicación (por ejemplo Flotación, Nave…) y un mínimo opcional que avisa en el canal cuando el total baja de él. Los administradores crean y borran inventarios; el panel, el detalle y el historial los puede ver cualquiera.</p>
+          <button class="ex" type="button" data-copy="/inventario crear nombre:Reactivos ubicaciones:Flotación, Nave, Jhon Wick" aria-label="Copiar el ejemplo /inventario crear nombre:Reactivos ubicaciones:Flotación, Nave, Jhon Wick">
+            <span class="ex-label">Ejemplo</span>
+            <code>/inventario crear nombre:Reactivos ubicaciones:Flotación, Nave, Jhon Wick</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/inventario objeto · ubicacion</code></h4>
+          <p>Estructura del inventario (administradores): <code>objeto añadir · quitar · minimo</code> y <code>ubicacion añadir · quitar</code>. Una ubicación solo se borra si está vacía.</p>
+          <button class="ex" type="button" data-copy="/inventario objeto añadir inventario:Reactivos nombre:Reactivo 01 minimo:5" aria-label="Copiar el ejemplo /inventario objeto añadir inventario:Reactivos nombre:Reactivo 01 minimo:5">
+            <span class="ex-label">Ejemplo</span>
+            <code>/inventario objeto añadir inventario:Reactivos nombre:Reactivo 01 minimo:5</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/inventario permisos añadir · quitar · ver</code></h4>
+          <p>Quién puede cambiar cantidades con los botones: usuarios o roles concretos que añade un administrador. Los administradores del servidor y el desarrollador del Bot siempre pueden.</p>
+          <button class="ex" type="button" data-copy="/inventario permisos añadir inventario:Reactivos usuario:@Juan" aria-label="Copiar el ejemplo /inventario permisos añadir inventario:Reactivos usuario:@Juan">
+            <span class="ex-label">Ejemplo</span>
+            <code>/inventario permisos añadir inventario:Reactivos usuario:@Juan</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/inventario stock añadir · quitar · mover</code></h4>
+          <p>Lo mismo que los botones, escrito en un comando. Solo para usuarios con permiso; cada cambio queda en el historial con quién y cuándo.</p>
+          <button class="ex" type="button" data-copy="/inventario stock mover inventario:Reactivos objeto:Reactivo 01 desde:Nave hacia:Flotación cantidad:3" aria-label="Copiar el ejemplo /inventario stock mover inventario:Reactivos objeto:Reactivo 01 desde:Nave hacia:Flotación cantidad:3">
+            <span class="ex-label">Ejemplo</span>
+            <code>/inventario stock mover inventario:Reactivos objeto:Reactivo 01 desde:Nave hacia:Flotación cantidad:3</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
         </div>
       </div>
     </section>
@@ -407,7 +443,7 @@
         </article>
         <article class="cmd">
           <h4><code>/mision</code></h4>
-          <p>Ficha completa de la misión: recompensas, requisitos, lo que hay que entregar, tiempo límite, jugadores, encuentros de combate (naves, bando y carga), dónde se coge y destinos. Sale entera, sin recortes. La ficha sale en español por defecto, aunque busques el nombre en inglés; usa <code>idioma:English</code> para verla en inglés.</p>
+          <p>Ficha completa de la misión: recompensas, requisitos, lo que hay que entregar, tiempo límite, cooldown, jugadores, encuentros de combate (naves, bando y carga), dónde se coge y destinos. Sale entera, sin recortes. La ficha sale en español por defecto, aunque busques el nombre en inglés; usa <code>idioma:English</code> para verla en inglés.</p>
           <button class="ex" type="button" data-copy="/mision nombre:XS Purchase Order" aria-label="Copiar el ejemplo /mision nombre:XS Purchase Order">
             <span class="ex-label">Ejemplo</span>
             <code>/mision nombre:XS Purchase Order</code>
@@ -416,10 +452,10 @@
         </article>
         <article class="cmd">
           <h4><code>/wikelo</code></h4>
-          <p>Trueques de Wikelo Emporium. Misma opción <code>idioma</code> que <code>/mision</code>.</p>
-          <button class="ex" type="button" data-copy="/wikelo objeto:Lindinium" aria-label="Copiar el ejemplo /wikelo objeto:Lindinium">
+          <p>Trueques de Wikelo Emporium. Se buscan por el nombre del trueque o por su recompensa (una nave, un arma, una armadura): el autocompletado muestra cada trueque con lo que da, como <code>Firebird Mod → Aegis Sabre Firebird Wikelo War Special</code>. Misma opción <code>idioma</code> que <code>/mision</code>.</p>
+          <button class="ex" type="button" data-copy="/wikelo objeto:Aegis Sabre Firebird" aria-label="Copiar el ejemplo /wikelo objeto:Aegis Sabre Firebird">
             <span class="ex-label">Ejemplo</span>
-            <code>/wikelo objeto:Lindinium</code>
+            <code>/wikelo objeto:Aegis Sabre Firebird</code>
             <span class="ex-copy" aria-hidden="true">Copiar</span>
           </button>
         </article>
@@ -430,7 +466,7 @@
         <div class="grid">
         <article class="cmd">
           <h4><code>/nave buy · rent</code></h4>
-          <p>Dónde comprar o alquilar una nave.</p>
+          <p>Dónde comprar o alquilar una nave. En <code>buy</code>, además del precio de la pledge store y de las tiendas del juego, salen los paquetes de la nave sin CCU de Star-Hangar y Space Foundry: el precio más bajo de cada seguro (LTI, 10 años, 6 meses…) en cada tienda, con enlace.</p>
           <button class="ex" type="button" data-copy="/nave buy nave:Carrack" aria-label="Copiar el ejemplo /nave buy nave:Carrack">
             <span class="ex-label">Ejemplo</span>
             <code>/nave buy nave:Carrack</code>
@@ -483,11 +519,38 @@
           </button>
         </article>
         <article class="cmd">
-          <h4><code>/finder</code></h4>
-          <p>Busca cualquier ítem del juego.</p>
-          <button class="ex" type="button" data-copy="/finder objeto:Behring P8-SC" aria-label="Copiar el ejemplo /finder objeto:Behring P8-SC">
+          <h4><code>/finder buscar</code></h4>
+          <p>Busca cualquier ítem del juego y lista todas las tiendas donde comprarlo. Con <code>sistema</code> (Stanton, Pyro o Nyx), <code>ubicacion</code> (una ciudad o estación, como <code>Nyx - Levski</code> o <code>Stanton - ARC-L1</code>, sin tener que elegir tienda) o <code>tienda</code> muestra solo las de ahí. Si un trueque de Wikelo u otra misión pide el ítem, la ficha las lista (con la cantidad que piden y lo que pagan) y un desplegable abre cada una.</p>
+          <button class="ex" type="button" data-copy="/finder buscar objeto:P4-AR Rifle ubicacion:Stanton - ARC-L1" aria-label="Copiar el ejemplo /finder buscar objeto:P4-AR Rifle ubicacion:Stanton - ARC-L1">
             <span class="ex-label">Ejemplo</span>
-            <code>/finder objeto:Behring P8-SC</code>
+            <code>/finder buscar objeto:P4-AR Rifle ubicacion:Stanton - ARC-L1</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/finder tienda</code></h4>
+          <p>Todo lo que vende una tienda, agrupado por categorías y con precio. Con <code>categoria</code> muestra solo una (<code>Utility</code>, <code>Utility/Gadgets</code>, <code>Miscellaneous/Foods</code>…).</p>
+          <button class="ex" type="button" data-copy="/finder tienda tienda:Tammany categoria:Utility/Gadgets" aria-label="Copiar el ejemplo /finder tienda tienda:Tammany categoria:Utility/Gadgets">
+            <span class="ex-label">Ejemplo</span>
+            <code>/finder tienda tienda:Tammany categoria:Utility/Gadgets</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/componente buscar</code></h4>
+          <p>Busca un componente de nave (escudo, generador, arma, misil…): dónde se compra, si puede encontrarse como botín y qué naves lo llevan de serie, con en cuántas misiones sale cada una. Con <code>nave</code> muestra esas misiones.</p>
+          <button class="ex" type="button" data-copy="/componente buscar componente:Bulwark nave:Drake Vulture" aria-label="Copiar el ejemplo /componente buscar componente:Bulwark nave:Drake Vulture">
+            <span class="ex-label">Ejemplo</span>
+            <code>/componente buscar componente:Bulwark nave:Drake Vulture</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/componente nave</code></h4>
+          <p>Muestra el equipamiento que trae de serie una nave, agrupado por tipo: generador, refrigeradores, escudos, motor cuántico, armas, misiles…</p>
+          <button class="ex" type="button" data-copy="/componente nave nave:Cutlass Black" aria-label="Copiar el ejemplo /componente nave nave:Cutlass Black">
+            <span class="ex-label">Ejemplo</span>
+            <code>/componente nave nave:Cutlass Black</code>
             <span class="ex-copy" aria-hidden="true">Copiar</span>
           </button>
         </article>
@@ -539,10 +602,10 @@
         <div class="grid">
         <article class="cmd">
           <h4><code>/pyam</code></h4>
-          <p>Estado online/offline del Executive Hangar y sus próximos cambios. Con <code>naves:true</code> muestra las naves de recompensa.</p>
-          <button class="ex" type="button" data-copy="/pyam naves:true" aria-label="Copiar el ejemplo /pyam naves:true">
+          <p>Estado del Executive Hangar (online, offline o reiniciando) y sus próximos cambios. El ciclo sale de contestedzonetimers.com; con <code>fuente</code> puedes usar exec.xyxyll.com. Con <code>naves:true</code> muestra las naves de recompensa.</p>
+          <button class="ex" type="button" data-copy="/pyam naves:true fuente:exec.xyxyll.com" aria-label="Copiar el ejemplo /pyam naves:true fuente:exec.xyxyll.com">
             <span class="ex-label">Ejemplo</span>
-            <code>/pyam naves:true</code>
+            <code>/pyam naves:true fuente:exec.xyxyll.com</code>
             <span class="ex-copy" aria-hidden="true">Copiar</span>
           </button>
         </article>
