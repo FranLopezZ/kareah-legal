@@ -520,7 +520,7 @@
         </article>
         <article class="cmd">
           <h4><code>/finder buscar</code></h4>
-          <p>Busca cualquier ítem del juego y lista todas las tiendas donde comprarlo. Con <code>sistema</code> (Stanton, Pyro o Nyx), <code>ubicacion</code> (una ciudad o estación, como <code>Nyx - Levski</code> o <code>Stanton - ARC-L1</code>, sin tener que elegir tienda) o <code>tienda</code> muestra solo las de ahí. Si un trueque de Wikelo u otra misión pide el ítem, la ficha las lista (con la cantidad que piden y lo que pagan) y un desplegable abre cada una.</p>
+          <p>Busca cualquier ítem del juego y lista todas las tiendas donde comprarlo. Con <code>sistema</code> (Stanton, Pyro o Nyx), <code>ubicacion</code> (una ciudad o estación, como <code>Nyx - Levski</code> o <code>Stanton - ARC-L1</code>, sin tener que elegir tienda) o <code>tienda</code> muestra solo las de ahí. Si un trueque de Wikelo u otra misión pide el ítem, la ficha las lista (con la cantidad que piden y lo que pagan) y un desplegable abre cada una. También indica dónde aparece como botín (lugares con su probabilidad y cuánto tarda en reaparecer, NPC y naves) y un botón abre la lista completa.</p>
           <button class="ex" type="button" data-copy="/finder buscar objeto:P4-AR Rifle ubicacion:Stanton - ARC-L1" aria-label="Copiar el ejemplo /finder buscar objeto:P4-AR Rifle ubicacion:Stanton - ARC-L1">
             <span class="ex-label">Ejemplo</span>
             <code>/finder buscar objeto:P4-AR Rifle ubicacion:Stanton - ARC-L1</code>
@@ -533,6 +533,24 @@
           <button class="ex" type="button" data-copy="/finder tienda tienda:Tammany categoria:Utility/Gadgets" aria-label="Copiar el ejemplo /finder tienda tienda:Tammany categoria:Utility/Gadgets">
             <span class="ex-label">Ejemplo</span>
             <code>/finder tienda tienda:Tammany categoria:Utility/Gadgets</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/ubicacion ver</code></h4>
+          <p>Dónde está un lugar (ciudad, puesto, cueva, sitio sin marcador…) y cómo llegar: coordenadas, ruta paso a paso desde el marcador más cercano (rumbo, altitud, tiempo de viaje, distancia donde parar y comprobación), lugares cercanos, tiendas y botín. Con <code>sitio</code> eliges uno si tiene varios, con <code>desde</code> otro lugar de partida y con <code>altitud</code> y <code>velocidad</code> ajustas el crucero.</p>
+          <button class="ex" type="button" data-copy="/ubicacion ver lugar:Echo Isle" aria-label="Copiar el ejemplo /ubicacion ver lugar:Echo Isle">
+            <span class="ex-label">Ejemplo</span>
+            <code>/ubicacion ver lugar:Echo Isle</code>
+            <span class="ex-copy" aria-hidden="true">Copiar</span>
+          </button>
+        </article>
+        <article class="cmd">
+          <h4><code>/ubicacion cerca</code></h4>
+          <p>Qué lugares hay más cerca de otro del mismo cuerpo, con distancia y rumbo. Con <code>solo_tiendas</code> muestra solo los que tienen tiendas y con <code>cantidad</code> cuántos mostrar.</p>
+          <button class="ex" type="button" data-copy="/ubicacion cerca lugar:Lorville solo_tiendas:True" aria-label="Copiar el ejemplo /ubicacion cerca lugar:Lorville solo_tiendas:True">
+            <span class="ex-label">Ejemplo</span>
+            <code>/ubicacion cerca lugar:Lorville solo_tiendas:True</code>
             <span class="ex-copy" aria-hidden="true">Copiar</span>
           </button>
         </article>

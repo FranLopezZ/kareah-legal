@@ -133,12 +133,19 @@ Escribe `/` en el chat para ver los comandos y sus opciones. Los ejemplos de est
   Ej.: `/nave ruta origen:Aurora objetivo:Carrack moneda:EUR`
 - `/objeto buy` · `lista buy` · `carrito` — Dónde comprar ítems y componentes.
   Ej.: `/objeto carrito add objeto:Arrowhead cantidad:2`
-- `/finder buscar` — Busca cualquier ítem y lista todas las tiendas donde comprarlo. Con `sistema` (Stanton, Pyro o Nyx), `ubicacion` (ciudad o estación: `Nyx - Levski`, `Stanton - ARC-L1`) o `tienda` solo las de ahí. Si un trueque de Wikelo u otra misión pide el ítem (con la cantidad y el pago), las lista y las abre con un desplegable.
+
+<!-- ✂ MENSAJE 10 — Star Citizen: finder y ubicaciones -->
+## Finder y ubicaciones
+- `/finder buscar` — Busca cualquier ítem y lista todas las tiendas donde comprarlo. Con `sistema` (Stanton, Pyro o Nyx), `ubicacion` (ciudad o estación: `Nyx - Levski`, `Stanton - ARC-L1`) o `tienda` solo las de ahí. Si un trueque de Wikelo u otra misión pide el ítem (con la cantidad y el pago), las lista y las abre con un desplegable. También indica dónde aparece como botín (lugares con su probabilidad y cuánto tarda en reaparecer, NPC y naves) y un botón **Ver todo el botín** abre la lista completa.
   Ej.: `/finder buscar objeto:P4-AR Rifle ubicacion:Stanton - ARC-L1`
 - `/finder tienda` — Todo lo que vende una tienda, por categorías y con precio. Con `categoria` solo una (`Utility`, `Utility/Gadgets`, `Miscellaneous/Foods`…).
   Ej.: `/finder tienda tienda:Tammany categoria:Utility/Gadgets`
+- `/ubicacion ver` — Dónde está un lugar (ciudad, puesto, cueva, sitio sin marcador…) y cómo llegar: coordenadas, ruta paso a paso desde el marcador más cercano (rumbo, altitud, tiempo de viaje, distancia donde parar y comprobación), lugares cercanos, tiendas y botín. Con `sitio` eliges uno si tiene varios, con `desde` otro lugar de partida y con `altitud`/`velocidad` ajustas el crucero.
+  Ej.: `/ubicacion ver lugar:Echo Isle`
+- `/ubicacion cerca` — Qué lugares hay más cerca de otro (mismo cuerpo), con distancia y rumbo. Con `solo_tiendas` solo los que tienen tiendas y con `cantidad` cuántos mostrar.
+  Ej.: `/ubicacion cerca lugar:Lorville solo_tiendas:True`
 
-<!-- ✂ MENSAJE 10 — Star Citizen: componentes, comercio y otros -->
+<!-- ✂ MENSAJE 11 — Star Citizen: componentes, comercio y otros -->
 ## Componentes
 - `/componente buscar` — Dónde se compra un componente de nave, si puede ser botín y qué naves lo llevan de serie, con en cuántas misiones sale cada una. Con `nave` lista esas misiones.
   Ej.: `/componente buscar componente:Bulwark nave:Drake Vulture`
