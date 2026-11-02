@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invitar a Kareah</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%235865f2%27/%3E%3Cpath d=%27M20 14v36M20 33l22-19M26 31l18 19%27 fill=%27none%27 stroke=%27%23fff%27 stroke-width=%277%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<meta name="description" content="Añade Kareah a tu servidor de Discord. Antes de continuar se muestran los permisos que pide el bot y las condiciones que debes aceptar.">
+<style>
+  :root { --bg:#ffffff; --card:#f6f8fa; --fg:#1f2328; --muted:#59636e; --line:#d1d9e0; --accent:#5865f2; --on-accent:#ffffff; --warn:#9a6700; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0d1117; --card:#151b23; --fg:#e6edf3; --muted:#9198a1; --line:#30363d; --accent:#8b9bff; --on-accent:#0d1117; --warn:#d29922; } }
+  * { box-sizing:border-box; }
+  body { background:var(--bg); color:var(--fg); font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; margin:0; }
+  main { max-width:760px; margin:0 auto; padding:32px 20px 64px; }
+  h1 { font-size:1.9rem; margin:0 0 6px; }
+  h2 { font-size:1.2rem; margin:2rem 0 .5rem; padding-top:.6rem; border-top:1px solid var(--line); }
+  p, li { margin:.4rem 0; }
+  a { color:var(--accent); }
+  .muted { color:var(--muted); font-size:.95rem; }
+  nav { display:flex; gap:16px; flex-wrap:wrap; margin:0 0 16px; font-size:.95rem; align-items:center; }
+  .lang { margin-left:auto; display:flex; gap:6px; }
+  .lang button { font:inherit; font-size:.85rem; padding:3px 10px; border:1px solid var(--line); border-radius:999px; background:var(--card); color:var(--fg); cursor:pointer; }
+  .lang button[aria-pressed="true"] { border-color:var(--accent); color:var(--accent); }
+  code { background:rgba(127,127,127,.15); padding:1px 5px; border-radius:4px; font-size:.9em; }
+  .perms { list-style:none; padding:0; display:grid; gap:8px; }
+  .perms li { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:0; }
+  .perms strong { display:block; }
+  .perms span { color:var(--muted); font-size:.93rem; }
+  .btn { font:inherit; font-weight:600; cursor:pointer; border:0; border-radius:10px; padding:12px 22px; background:var(--accent); color:var(--on-accent); }
+  .btn:hover:not(:disabled) { filter:brightness(1.08); }
+  .btn:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+  .btn:disabled { opacity:.45; cursor:not-allowed; }
+  .btn.ghost { background:transparent; color:var(--fg); border:1px solid var(--line); }
+  .cta { margin:28px 0 8px; }
+  .notice { border-left:3px solid var(--warn); background:var(--card); padding:10px 14px; border-radius:0 10px 10px 0; font-size:.93rem; }
+  dialog { max-width:560px; width:calc(100% - 32px); border:1px solid var(--line); border-radius:14px; background:var(--bg); color:var(--fg); padding:0; }
+  dialog::backdrop { background:rgba(0,0,0,.55); }
+  .dlg { padding:22px 22px 18px; }
+  .dlg h2 { border:0; margin:0 0 6px; padding:0; }
+  .checks { display:grid; gap:12px; margin:16px 0; }
+  .checks label { display:grid; grid-template-columns:auto 1fr; gap:10px; align-items:start; cursor:pointer; font-size:.95rem; line-height:1.45; }
+  .checks input { width:18px; height:18px; margin-top:2px; accent-color:var(--accent); }
+  .actions { display:flex; gap:10px; justify-content:flex-end; flex-wrap:wrap; }
+  [data-l]:not(.on) { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+
+<nav>
+  <a href="index.html">Inicio / Home</a>
+  <a href="comandos.html">Comandos</a>
+  <a href="terms.html">Condiciones</a>
+  <a href="privacy.html">Privacidad</a>
+  <span class="lang" role="group" aria-label="Idioma / Language">
+    <button type="button" data-set="es" aria-pressed="true">ES</button>
+    <button type="button" data-set="en" aria-pressed="false">EN</button>
+  </span>
+</nav>
+
+<h1><span data-l="es" class="on">Invitar a Kareah</span><span data-l="en">Invite Kareah</span></h1>
+<p class="muted on" data-l="es">Bot de Discord de moderación, utilidades de comunidad y datos de Star Citizen.</p>
+<p class="muted" data-l="en">Discord bot for moderation, community utilities and Star Citizen data.</p>
+
+<!-- ───────────── ES ───────────── -->
+<section data-l="es" class="on">
+  <h2>Antes de añadir el bot</h2>
+  <p>Kareah se añade mediante la pantalla oficial de Discord, donde eliges el servidor. Solo puedes añadirlo a servidores donde tengas el permiso <strong>Gestionar servidor</strong>. Estos son los permisos que pedirá, y por qué:</p>
+  <ul class="perms">
+    <li><strong>Ver canales, enviar mensajes, insertar enlaces, adjuntar archivos, leer el historial</strong><span>Responder a los comandos y publicar fichas, embeds y tablas.</span></li>
+    <li><strong>Gestionar mensajes</strong><span><code>/clear</code>, borrado automático, automoderación y mensajes fijados (sticky).</span></li>
+    <li><strong>Gestionar canales</strong><span><code>/canal</code>, canales de estadísticas, voz temporal y permisos de canal.</span></li>
+    <li><strong>Gestionar roles</strong><span>Autoroles y botones de rol.</span></li>
+    <li><strong>Expulsar, banear y aislar (timeout) miembros</strong><span><code>/kick</code>, <code>/ban</code>, <code>/silenciar</code> y las sanciones de la automoderación.</span></li>
+    <li><strong>Conectar y mover miembros en voz</strong><span>Canales de voz temporales y <code>/moveall</code>.</span></li>
+  </ul>
+  <p>No pide el permiso de Administrador. Puedes quitar cualquiera de ellos después; las funciones que dependan de él dejarán de funcionar.</p>
+
+  <h2>Qué datos trata</h2>
+  <p>Para funcionar, Kareah <strong>lee los mensajes de los canales que puede ver</strong> (automoderación, mensajes fijados, disparadores, comandos con prefijo y monitor de noticias). Guarda la configuración de cada servidor, las advertencias, los inventarios, carritos, recordatorios y similares. Al expulsar al bot, los datos de ese servidor se borran. El detalle completo está en la <a href="privacy.html">Política de Privacidad</a>.</p>
+  <p class="notice">Si activas registros (<code>/logs</code>) o la automoderación, tú decides y eres responsable de avisar a los miembros de tu servidor.</p>
+</section>
+
+<!-- ───────────── EN ───────────── -->
+<section data-l="en">
+  <h2>Before adding the bot</h2>
+  <p>Kareah is added through Discord's official screen, where you pick the server. You can only add it to servers where you have the <strong>Manage Server</strong> permission. These are the permissions it asks for, and why:</p>
+  <ul class="perms">
+    <li><strong>View channels, send messages, embed links, attach files, read history</strong><span>Answer commands and post sheets, embeds and tables.</span></li>
+    <li><strong>Manage messages</strong><span><code>/clear</code>, auto-clear, automod and sticky messages.</span></li>
+    <li><strong>Manage channels</strong><span><code>/canal</code>, stats channels, temporary voice and channel permissions.</span></li>
+    <li><strong>Manage roles</strong><span>Auto-roles and button roles.</span></li>
+    <li><strong>Kick, ban and time out members</strong><span><code>/kick</code>, <code>/ban</code>, <code>/silenciar</code> and automod sanctions.</span></li>
+    <li><strong>Connect and move members in voice</strong><span>Temporary voice channels and <code>/moveall</code>.</span></li>
+  </ul>
+  <p>It does not request the Administrator permission. You can remove any of them later; features that depend on it will stop working.</p>
+
+  <h2>Data it processes</h2>
+  <p>To work, Kareah <strong>reads messages in the channels it can see</strong> (automod, sticky messages, triggers, prefix commands and the news monitor). It stores each server's settings, warnings, inventories, carts, reminders and similar. When the bot is removed, that server's data is deleted. Full detail in the <a href="privacy.html">Privacy Policy</a>.</p>
+  <p class="notice">If you enable logs (<code>/logs</code>) or automod, you decide and are responsible for informing your server's members.</p>
+</section>
+
+<div class="cta">
+  <button class="btn" id="open" type="button">
+    <span data-l="es" class="on">Invitar a Kareah</span><span data-l="en">Invite Kareah</span>
+  </button>
+  <p class="notice" id="missing" hidden>
+    <span data-l="es" class="on">El enlace de invitación aún no está configurado en esta página.</span>
+    <span data-l="en">The invite link is not configured on this page yet.</span>
+  </p>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <form method="dialog" class="dlg" id="form">
+    <h2 id="dlg-title"><span data-l="es" class="on">Antes de continuar</span><span data-l="en">Before you continue</span></h2>
+    <p class="muted"><span data-l="es" class="on">Marca todas las casillas para poder añadir el bot.</span><span data-l="en">Tick every box to add the bot.</span></p>
+
+    <div class="checks">
+      <label><input type="checkbox" required>
+        <span><span data-l="es" class="on">Tengo el permiso <strong>Gestionar servidor</strong> en el servidor donde lo voy a añadir, o autorización de quien lo administra.</span><span data-l="en">I have the <strong>Manage Server</strong> permission on the server where I'm adding it, or authorization from whoever administers it.</span></span></label>
+      <label><input type="checkbox" required>
+        <span><span data-l="es" class="on">He leído y acepto las <a href="terms.html" target="_blank" rel="noopener">Condiciones del Servicio</a>.</span><span data-l="en">I have read and accept the <a href="terms.html#en" target="_blank" rel="noopener">Terms of Service</a>.</span></span></label>
+      <label><input type="checkbox" required>
+        <span><span data-l="es" class="on">He leído la <a href="privacy.html" target="_blank" rel="noopener">Política de Privacidad</a> y entiendo que el bot lee los mensajes de los canales que ve para ofrecer sus funciones.</span><span data-l="en">I have read the <a href="privacy.html#en" target="_blank" rel="noopener">Privacy Policy</a> and understand the bot reads messages in the channels it sees to provide its features.</span></span></label>
+      <label><input type="checkbox" required>
+        <span><span data-l="es" class="on">Entiendo los permisos que solicita y que soy responsable de informar a los miembros del servidor y de usar el bot conforme a las normas de Discord.</span><span data-l="en">I understand the permissions it requests, and that I am responsible for informing the server's members and for using the bot in line with Discord's rules.</span></span></label>
+      <label><input type="checkbox" required>
+        <span><span data-l="es" class="on">Tengo la edad mínima exigida por Discord en mi país para usar la plataforma.</span><span data-l="en">I am at least the minimum age Discord requires in my country.</span></span></label>
+    </div>
+
+    <div class="actions">
+      <button class="btn ghost" type="button" id="cancel"><span data-l="es" class="on">Cancelar</span><span data-l="en">Cancel</span></button>
+      <button class="btn" type="submit" id="go" disabled><span data-l="es" class="on">Aceptar y continuar en Discord</span><span data-l="en">Accept and continue on Discord</span></button>
+    </div>
+  </form>
+</dialog>
+
+<p class="muted" style="margin-top:40px">
+  <span data-l="es" class="on">¿Dudas? <a href="https://discord.gg/vGnZMUSk95">Servidor de soporte</a> · <a href="https://discord.com/users/392342517569290241">Contacto</a></span>
+  <span data-l="en">Questions? <a href="https://discord.gg/vGnZMUSk95">Support server</a> · <a href="https://discord.com/users/392342517569290241">Contact</a></span>
+</p>
+
+</main>
+
+<script>
+  // ID de la aplicación (Developer Portal → General Information → Application ID). No es un secreto.
+  var CLIENT_ID = '1500654627425882172';
+  // Permisos pedidos (mismo valor que INVITE_PERMISSIONS en src/events/messageCreate.ts; sin Administrador).
+  var PERMISSIONS = '1099798014998';
+
+  var url = 'https://discord.com/oauth2/authorize?client_id=' + encodeURIComponent(CLIENT_ID) +
+    '&permissions=' + PERMISSIONS + '&scope=' + encodeURIComponent('bot applications.commands');
+
+  var dlg = document.getElementById('dlg');
+  var go = document.getElementById('go');
+  var checks = Array.prototype.slice.call(dlg.querySelectorAll('input[type=checkbox]'));
+  var openBtn = document.getElementById('open');
+
+  if (!/^\d{17,20}$/.test(CLIENT_ID)) {
+    openBtn.disabled = true;
+    document.getElementById('missing').hidden = false;
+  }
+
+  function sync() { go.disabled = !checks.every(function (c) { return c.checked; }); }
+  checks.forEach(function (c) { c.addEventListener('change', sync); });
+
+  openBtn.addEventListener('click', function () {
+    checks.forEach(function (c) { c.checked = false; });
+    sync();
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
+  });
+  document.getElementById('cancel').addEventListener('click', function () { dlg.close(); });
+  document.getElementById('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (go.disabled) return;
+    dlg.close();
+    window.open(url, '_blank', 'noopener');
+  });
+
+  // Idioma: ES por defecto, EN si el navegador está en inglés; el botón lo cambia.
+  function setLang(l) {
+    document.documentElement.lang = l;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-l]'), function (el) {
+      el.classList.toggle('on', el.getAttribute('data-l') === l);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.lang button'), function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === l));
+    });
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.lang button'), function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); });
+  });
+  if (/^en/i.test(navigator.language || '')) setLang('en');
+</script>
+</body>
+</html>
